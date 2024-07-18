@@ -1,0 +1,18 @@
+<div class="category-filter">
+    <h5>Filter by Category:</h5>
+    <select id="category" [(ngModel)]="categoryName" (change)="filterByCategory()">
+        <option value="all">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+</div>
+<h2 class="text-center">Products List</h2>
+<div class="product-list">
+    <div *ngFor="let product of products;  let i = index" class="product-card">
+        <img [src]="product.image" alt="{{ product.title }}">
+        <h6>{{ product.title }}</h6>
+        <p>{{ product.price | currency:'USD' }}</p>
+        <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>&nbsp;
+        <button class="btn btn-primary" [routerLink]="['/product-details',product.id]">View Details</button>
+    </div>
+</div>

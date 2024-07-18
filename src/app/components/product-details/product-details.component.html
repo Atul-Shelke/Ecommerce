@@ -1,0 +1,11 @@
+<div  *ngIf="selectedProduct" class="product-details">
+    <h2>Product Details</h2>
+    <div>
+      <img [src]="selectedProduct.image" alt="{{ selectedProduct.title }}"  style="width: 200px; height: 200px;">
+      <h3>{{ selectedProduct.title }}</h3>
+      <p>{{ selectedProduct.description }}</p>
+      <p>{{ selectedProduct.price | currency:'USD' }}</p>
+      
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="productList()">Product List</button>
